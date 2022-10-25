@@ -9,10 +9,10 @@ import frontend from './images/front-end-developer-skills.jpg';
 const Home = () => {
     return (
         <div>
-            <Container className='d-flex justify-content-between shadow-lg  rounded my-3'>
+            <Container className=' shadow-lg  rounded my-3'>
 
-                <h2 className='text-center text-warning mt-5 mx-3 '>NK IT department is a beautiful company. We offer you the best courses. Many boys who have completed our courses are now working in good companies. You can also do our course. Thank You.</h2>
-                <img style={{ width: '700px' }} src={basic} alt="" />
+                <h2 className='text-center text-warning my-5 mx-3 '>NK IT department is a beautiful company. We offer you the best courses. Many boys who have completed our courses are now working in good companies. You can also do our course. Thank You.</h2>
+                <img className='d-block w-100' style={{ width: '' }} sm src={basic} alt="" />
             </Container>
             <Container>
                 <Carousel>
@@ -44,7 +44,7 @@ const Home = () => {
             </Container>
             <Container>
                 <Row>
-                    <Col lg='5' className='text-light shadow-lg border border-success my-3 mx-auto'>
+                    <Col lg='5' className='text-light shadow-lg border border-success rounded my-3 mx-auto'>
                         <Card className="text-center bg-dark">
                             <Card.Body>
                                 <Card.Title className='text-warning'>Adobe PhotoShop</Card.Title>
@@ -54,7 +54,7 @@ const Home = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col lg='5' className='text-light shadow-lg border border-success my-3 mx-auto'>
+                    <Col lg='5' className='text-light shadow-lg border border-success rounded my-3 mx-auto'>
                         <Card className="text-center bg-dark">
                             <Card.Body>
                                 <Card.Title className='text-warning'>Adobe Illustrator</Card.Title>
@@ -64,7 +64,7 @@ const Home = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col lg='5' className=' text-light shadow-lg border border-success my-3 mx-auto'>
+                    <Col lg='5' className=' text-light shadow-lg border border-success rounded my-3 mx-auto'>
                         <Card className="text-center bg-dark">
                             <Card.Body>
                                 <Card.Title className='text-warning'>Microsoft Office</Card.Title>
@@ -74,7 +74,7 @@ const Home = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col lg='5' className='text-light shadow-lg border border-success my-3 mx-auto'>
+                    <Col lg='5' className='text-light shadow-lg border border-success rounded my-3 mx-auto'>
                         <Card className="text-center bg-dark">
                             <Card.Body>
                                 <Card.Title className='text-warning'>Basic Computer</Card.Title>
@@ -84,7 +84,7 @@ const Home = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col lg='5' className=' text-light shadow-lg border border-success my-3 mx-auto'>
+                    <Col lg='5' className=' text-light shadow-lg border border-success rounded my-3 mx-auto'>
                         <Card className="text-center bg-dark">
                             <Card.Body>
                                 <Card.Title className='text-warning'>Front end developer</Card.Title>
@@ -94,7 +94,7 @@ const Home = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col lg='5' className=' text-light shadow-lg border border-success my-3 mx-auto'>
+                    <Col lg='5' className=' text-light shadow-lg border border-success rounded my-3 mx-auto'>
                         <Card className="text-center bg-dark ">
                             <Card.Body>
                                 <Card.Title className='text-warning'>Back end developer</Card.Title>
