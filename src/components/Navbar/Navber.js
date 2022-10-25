@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../UserContext';
 
 const Navber = () => {
+    const { user } = useContext(AuthContext)
     return (
         <Navbar className='shadow-lg' bg="dark" variant='dark' expand="lg">
             <Container>
@@ -13,7 +15,9 @@ const Navber = () => {
                         <Link to='/home' className='text-decoration-none text-primary fs-5 my-auto me-5'>Home</Link>
                         <Link to='/courses' className='text-decoration-none text-primary fs-5 my-auto me-5'>Courses</Link>
                         <Link to='/home' className='text-decoration-none text-primary fs-5 my-auto me-5'>Blog</Link>
-
+                        {
+                            user?.displayName ? <h5 className='text-warning'>{user?.displayName}</h5> : ''
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
