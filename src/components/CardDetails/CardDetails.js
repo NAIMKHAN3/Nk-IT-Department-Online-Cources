@@ -6,7 +6,6 @@ import { FaStar } from 'react-icons/fa';
 const CardDetails = () => {
     const course = useLoaderData()
     const { title, image, description, price, rating } = course;
-    console.log(course)
     return (
         <Container>
             <Row>
@@ -25,10 +24,12 @@ const CardDetails = () => {
                                 <h4>Ratings: <FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar>  {rating}</h4>
                             </div>
                             <Button className='w-50 p-3 m-3 fs-5 text-light' variant="outline-primary">Buy Now</Button>
+                            <Button className='w-50 p-3 m-3 fs-5 text-light' variant="outline-primary">Buy Now</Button>
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
+
         </Container>
     );
 };
