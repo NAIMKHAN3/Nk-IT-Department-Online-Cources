@@ -12,7 +12,7 @@ const Home = () => {
             <Container className=' shadow-lg  rounded my-3'>
 
                 <h2 className='text-center text-warning my-5 mx-3 '>NK IT department is a beautiful company. We offer you the best courses. Many boys who have completed our courses are now working in good companies. You can also do our course. Thank You.</h2>
-                <img className='d-block w-100' style={{ width: '' }} sm src={basic} alt="" />
+                <img className='d-block w-100' style={{ width: '' }} src={basic} alt="" />
             </Container>
             <Container>
                 <Carousel>

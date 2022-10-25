@@ -1,11 +1,13 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
+import CardComponents from '../CardComponents/CardComponents';
 import Cetegory from '../Cetegory/Cetegory';
 
 const Courses = () => {
     const courses = useLoaderData();
-    console.log(courses)
+
     return (
         <Container className='text-light'>
             <Row>
@@ -15,7 +17,8 @@ const Courses = () => {
                     }
                 </Col>
                 <Col lg='9'>
-                    <h1>my name is Naim</h1>
+
+                    <Outlet></Outlet>
                 </Col>
             </Row>
         </Container>
