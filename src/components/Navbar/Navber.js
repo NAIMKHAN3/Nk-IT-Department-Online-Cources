@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, ToggleButton, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext';
 import { FaUserCircle } from 'react-icons/fa';
+import { useState } from 'react';
 
 
 const Navber = () => {
@@ -17,6 +18,16 @@ const Navber = () => {
             {user?.displayName}
         </Tooltip>
     );
+    const [theme, setTheme] = useState('Light');
+    const toggle = () => {
+        if (theme === 'Dark') {
+            setTheme('Light')
+        }
+        else {
+            setTheme('Dark')
+        }
+    }
+
 
 
     return (
@@ -52,6 +63,7 @@ const Navber = () => {
                                             <Link to='/signup' className='text-decoration-none text-primary fs-5 my-auto me-3'>Sign Up</Link></>
                                 }
 
+                                <Button onClick={toggle} className='my-auto mx-auto' variant="outline-warning">{theme}</Button>
                             </div>
 
                         </div>
