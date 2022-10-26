@@ -1,10 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../UserContext';
 
 const SignUp = () => {
+    const [error, setError] = useState('');
+    const Navigate = useNavigate();
     const { signUp } = useContext(AuthContext)
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -13,8 +16,11 @@ const SignUp = () => {
         const password = form.password.value
         signUp(email, password)
             .then(result => {
-                console.log(result.user)
+                setError('')
+                Navigate('/home')
             })
+            .catch(error => { setError(error.message) });
+        form.reset();
         // console.log(email, password)
     }
     return (
@@ -30,13 +36,14 @@ const SignUp = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className='mt-3'>Email address</Form.Label>
-                <Form.Control className='bg-dark p-3 my-3 border-success' type="email" name='email' placeholder="Enter email" required />
+                <Form.Control className='bg-dark text-light p-3 my-3 border-success' type="email" name='email' placeholder="Enter email" required />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label className='mt-3'>Password</Form.Label>
-                <Form.Control className='bg-dark p-3 my-3 border-success' type="password" name='password' placeholder="Password" required />
+                <Form.Control className='bg-dark text-light p-3 my-3 border-success' type="password" name='password' placeholder="Password" required />
             </Form.Group>
+            <p className='text-danger text-center'>{error}</p>
             <Button className='w-100 mx-auto text-center text-light p-2 m-3 fs-5' variant="outline-primary" type="submit">
                 Sign Up
             </Button>

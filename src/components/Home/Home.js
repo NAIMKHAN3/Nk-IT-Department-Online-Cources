@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, Carousel, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Carousel, Col, Container, Row } from 'react-bootstrap';
 import backend from './images/backend.png';
 import basic from './images/basic computer.jpg';
 import microsoft from './images/microsoft office.png';
 import frontend from './images/front-end-developer-skills.jpg';
+import ReactTooltip from 'react-tooltip';
 
 
 const Home = () => {
@@ -106,6 +107,7 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
+
         </div>
     );
 };

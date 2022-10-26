@@ -6,7 +6,7 @@ import { router } from './layout/Router';
 
 function App() {
   return (
-    <div className='bg-dark'>
+    <div className='bg-dar'>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
