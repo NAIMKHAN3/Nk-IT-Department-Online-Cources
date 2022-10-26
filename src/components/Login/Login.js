@@ -2,14 +2,17 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { logIn, signInGoogle, githubSign } = useContext(AuthContext);
     const [error, setError] = useState('');
     const Navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -20,7 +23,12 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 setError('')
-                Navigate('/home')
+                Swal.fire(
+                    'Log In Successfull',
+                    'Thank You',
+                    'success'
+                )
+                Navigate(from, { replace: true })
             })
             .catch(error => { setError(error.message) });
         form.reset();
@@ -30,7 +38,12 @@ const Login = () => {
         signInGoogle()
             .then(result => {
                 console.log(result.user)
-                Navigate('/home')
+                Swal.fire(
+                    'Sign In Successfull',
+                    'Thank You',
+                    'success'
+                )
+                Navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
 
@@ -39,7 +52,12 @@ const Login = () => {
         githubSign()
             .then(result => {
                 console.log(result.user)
-                Navigate('/home')
+                Swal.fire(
+                    'Sign In Successfull',
+                    'Thank You',
+                    'success'
+                )
+                Navigate(from, { replace: true })
             })
             .catch(e => setError(e))
 

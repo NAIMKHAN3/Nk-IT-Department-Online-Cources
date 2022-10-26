@@ -11,7 +11,7 @@ const CheckOut = () => {
         e.preventDefault();
         Swal.fire(
             'Congratulation',
-            'Youu Check Out is done',
+            'You Check Out is done',
             'success'
         )
         Navigate('/courses')

@@ -7,6 +7,7 @@ import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Main from "../components/Main/Main";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
             {
                 path: '/courses/checkout/:id',
                 loader: ({ params }) => fetch(`https://assignment-10-server-side.vercel.app/courses/${params.id}`),
-                element: <CheckOut></CheckOut>
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             }
 
         ]

@@ -1,17 +1,30 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar, OverlayTrigger, ToggleButton, Tooltip } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext';
 import { FaUserCircle } from 'react-icons/fa';
 import { useState } from 'react';
+import logo from './logo.jpg';
+import Swal from 'sweetalert2';
 
 
 const Navber = () => {
     const { user, logOut } = useContext(AuthContext)
+    const Navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                Swal.fire(
+                    'Log Out Successfull',
+                    'Thank You',
+                    'success'
+                )
+                Navigate(from, { replace: true })
+            })
             .catch(error => console.error(error))
+
     }
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -33,6 +46,7 @@ const Navber = () => {
     return (
         <Navbar className='shadow-lg' bg="dark" variant='dark' expand="lg">
             <Container>
+                <img className='me-3 rounded' style={{ width: '60px' }} src={logo} alt="" />
                 <Link to='/home' className='text-decoration-none text-warning fs-3 my-auto me-5'>NK-IT-Department</Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -63,7 +77,7 @@ const Navber = () => {
                                             <Link to='/signup' className='text-decoration-none text-primary fs-5 my-auto me-3'>Sign Up</Link></>
                                 }
 
-                                <Button onClick={toggle} className='my-auto mx-auto' variant="outline-warning">{theme}</Button>
+                                <Button onClick={toggle} className='my-3 mx-3' variant="outline-warning">{theme}</Button>
                             </div>
 
                         </div>

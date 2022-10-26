@@ -3,13 +3,16 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../../UserContext';
 
 const SignUp = () => {
     const [error, setError] = useState('');
     const Navigate = useNavigate();
     const { signUp, updateNamePhoto, githubSign, signInGoogle } = useContext(AuthContext)
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handleSignUp = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -20,7 +23,12 @@ const SignUp = () => {
         signUp(email, password)
             .then(result => {
                 setError('')
-                Navigate('/home')
+                Swal.fire(
+                    'Sign Up Successfull',
+                    'Thank You',
+                    'success'
+                )
+                Navigate(from, { replace: true })
                 updateProfile(name, photoURL)
             })
             .catch(error => { setError(error.message) });
@@ -40,7 +48,12 @@ const SignUp = () => {
         signInGoogle()
             .then(result => {
                 console.log(result.user)
-                Navigate('/home')
+                Swal.fire(
+                    'Sign In Successfull',
+                    'Thank You',
+                    'success'
+                )
+                Navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
 
@@ -49,7 +62,12 @@ const SignUp = () => {
         githubSign()
             .then(result => {
                 console.log(result.user)
-                Navigate('/home')
+                Swal.fire(
+                    'Sign In Successfull',
+                    'Thank You',
+                    'success'
+                )
+                Navigate(from, { replace: true })
             })
             .catch(e => setError(e))
 
