@@ -2,13 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../UserContext';
 
 const SignUp = () => {
     const [error, setError] = useState('');
     const Navigate = useNavigate();
-    const { signUp, updateNamePhoto } = useContext(AuthContext)
+    const { signUp, updateNamePhoto, githubSign, signInGoogle } = useContext(AuthContext)
     const handleSignUp = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -35,6 +36,24 @@ const SignUp = () => {
             .then(() => { })
             .catch(e => console.log(e))
     }
+    const google = () => {
+        signInGoogle()
+            .then(result => {
+                console.log(result.user)
+                Navigate('/home')
+            })
+            .catch(error => console.log(error))
+
+    }
+    const github = () => {
+        githubSign()
+            .then(result => {
+                console.log(result.user)
+                Navigate('/home')
+            })
+            .catch(e => setError(e))
+
+    }
 
     return (
         <Form onSubmit={handleSignUp} className='text-light col-lg-6 col-sm-12 mx-auto my-5 border border-success h-100 p-5'>
@@ -60,6 +79,8 @@ const SignUp = () => {
             <Button className='w-100 mx-auto text-center text-light p-2 m-3 fs-5' variant="outline-primary" type="submit">
                 Sign Up
             </Button>
+            <Button onClick={google} className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary"> <FaGoogle></FaGoogle>  Google Sign In</Button>
+            <Button onClick={github} className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary" > <FaGithub />  Github Sign In</Button>
             <p className='text-center my-3'>Already Have an account? Please <Link className='text-decoration-none fs-5' to='/login'>Log In</Link></p>
         </Form>
     );

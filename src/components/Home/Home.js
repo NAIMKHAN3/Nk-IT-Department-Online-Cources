@@ -4,7 +4,8 @@ import backend from './images/backend.png';
 import basic from './images/basic computer.jpg';
 import microsoft from './images/microsoft office.png';
 import frontend from './images/front-end-developer-skills.jpg';
-import ReactTooltip from 'react-tooltip';
+
+
 
 
 const Home = () => {
@@ -111,5 +112,7 @@ const Home = () => {
         </div>
     );
 };
+
+
 
 export default Home;

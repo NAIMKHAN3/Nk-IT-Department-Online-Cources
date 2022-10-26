@@ -1,18 +1,7 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
-const ReactToPdf = () => {
-    return (
-        <div>
 
-        </div>
-    );
-};
-
-export default ReactToPdf;
-
-
-// Create styles
 const styles = StyleSheet.create({
     page: {
         flexDirection: 'row',
@@ -30,7 +19,7 @@ const MyDocument = () => (
     <Document>
         <Page size="A4" style={styles.page}>
             <View style={styles.section}>
-                <Text>Section #1</Text>
+                <Text>this is Naim Khan</Text>
             </View>
             <View style={styles.section}>
                 <Text>Section #2</Text>
@@ -38,3 +27,4 @@ const MyDocument = () => (
         </Page>
     </Document>
 );
+export default MyDocument;

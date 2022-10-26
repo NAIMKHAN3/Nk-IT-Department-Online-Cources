@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
     const { logIn, signInGoogle, githubSign } = useContext(AuthContext);
@@ -27,13 +28,21 @@ const Login = () => {
     }
     const google = () => {
         signInGoogle()
-            .then(result => { console.log(result.user) })
+            .then(result => {
+                console.log(result.user)
+                Navigate('/home')
+            })
             .catch(error => console.log(error))
+
     }
     const github = () => {
         githubSign()
-            .then(result => { console.log(result.user) })
+            .then(result => {
+                console.log(result.user)
+                Navigate('/home')
+            })
             .catch(e => setError(e))
+
     }
 
 
@@ -55,9 +64,10 @@ const Login = () => {
             <Button className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary" type="submit">
                 Log In
             </Button>
+
+            <Button onClick={google} className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary"> <FaGoogle></FaGoogle>  Google Sign In</Button>
+            <Button onClick={github} className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary" > <FaGithub />  Github Sign In</Button>
             <p className='text-center my-3'>New User? Please <Link className='text-decoration-none fs-5' to='/signup'>Sign Up</Link></p>
-            <Button onClick={google} className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary" >Google Sign In</Button>
-            <Button onClick={github} className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary" >Github Sign In</Button>
         </Form>
     );
 };
