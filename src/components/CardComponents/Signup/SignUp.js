@@ -8,31 +8,44 @@ import { AuthContext } from '../../../UserContext';
 const SignUp = () => {
     const [error, setError] = useState('');
     const Navigate = useNavigate();
-    const { signUp } = useContext(AuthContext)
+    const { signUp, updateNamePhoto } = useContext(AuthContext)
     const handleSignUp = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
-        const password = form.password.value
+        const password = form.password.value;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
         signUp(email, password)
             .then(result => {
                 setError('')
                 Navigate('/home')
+                updateProfile(name, photoURL)
             })
             .catch(error => { setError(error.message) });
         form.reset();
         // console.log(email, password)
     }
+    const updateProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateNamePhoto(profile)
+            .then(() => { })
+            .catch(e => console.log(e))
+    }
+
     return (
         <Form onSubmit={handleSignUp} className='text-light col-lg-6 col-sm-12 mx-auto my-5 border border-success h-100 p-5'>
             <h1 className='text-warning my-3 text-center'>Sign Up</h1>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label className='mt-3'>Email Your Full Name</Form.Label>
-                <Form.Control className='bg-dark p-3 my-3 border-success' type="text" placeholder="Enter Your Full Name" />
+                <Form.Control className='bg-dark text-light p-3 my-3 border-success' type="text" name='name' placeholder="Enter Your Full Name" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPhotoUrl">
                 <Form.Label className='mt-3'>Your Photo URL</Form.Label>
-                <Form.Control className='bg-dark p-3 my-3 border-success' type="text" placeholder="Photo URL" />
+                <Form.Control className='bg-dark text-light p-3 my-3 border-success' type="text" name='photoURL' placeholder="Photo URL" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className='mt-3'>Email address</Form.Label>
