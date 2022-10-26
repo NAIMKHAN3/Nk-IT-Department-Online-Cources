@@ -1,13 +1,24 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const CheckOut = () => {
     const course = useLoaderData();
     const { image, title, price } = course;
+    const Navigate = useNavigate()
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        Swal.fire(
+            'Congratulation',
+            'Youu Check Out is done',
+            'success'
+        )
+        Navigate('/courses')
+    }
     return (
         <div>
-            <Form className='bg-light col-sm-12 col-lg-6 mx-auto my-5 p-3 rounded'>
+            <Form onSubmit={handleSubmit} className='bg-light col-sm-12 col-lg-6 mx-auto my-5 p-3 rounded'>
                 <h2 className='text-center my-5'>Contact Information</h2>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control type="text" placeholder="Full Name" required />
