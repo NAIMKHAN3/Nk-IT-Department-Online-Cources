@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaDownload } from 'react-icons/fa';
 import Pdf from 'react-to-pdf';
 
@@ -8,7 +8,7 @@ import Pdf from 'react-to-pdf';
 const ref = React.createRef();
 const CardDetails = () => {
     const course = useLoaderData()
-    const { title, image, description, price, rating } = course;
+    const { title, image, description, price, rating, id } = course;
 
     return (
         <div>
@@ -39,7 +39,7 @@ const CardDetails = () => {
                                     </div>
                                 </Card.Body>
                             </div>
-                            <Button className='w-50 p-3 mx-auto my-3 fs-5 text-light' variant="outline-primary">Enroll Now</Button>
+                            <Link to={`/courses/checkout/${id}`}><Button className='w-50 p-3 mx-auto my-3 fs-5 text-light' variant="outline-primary">Enroll Now</Button></Link>
                         </Card>
                     </Col>
                 </Row>

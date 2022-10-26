@@ -5,7 +5,6 @@ import Cards from '../Cards/Cards';
 
 const CardComponents = () => {
     const courses = useLoaderData()
-    console.log(courses)
     return (
         <CardGroup>
             <Container>
