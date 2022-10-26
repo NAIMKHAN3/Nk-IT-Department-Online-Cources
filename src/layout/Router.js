@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import CardComponents from "../components/CardComponents/CardComponents";
+import SignUp from "../components/CardComponents/Signup/SignUp";
 import CardDetails from "../components/CardDetails/CardDetails";
 import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
+import Login from "../components/Login/Login";
 import Main from "../components/Main/Main";
 
 export const router = createBrowserRouter([
@@ -13,6 +15,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/home', element: <Home></Home>
+            },
+            {
+                path: '/login', element: <Login></Login>
+            },
+            {
+                path: '/signup', element: <SignUp></SignUp>
             },
             {
                 path: '/courses',

@@ -14,7 +14,9 @@ const Navber = () => {
                     <Nav className="me-auto">
                         <Link to='/home' className='text-decoration-none text-primary fs-5 my-auto me-5'>Home</Link>
                         <Link to='/courses' className='text-decoration-none text-primary fs-5 my-auto me-5'>Courses</Link>
-                        <Link to='/home' className='text-decoration-none text-primary fs-5 my-auto me-5'>Blog</Link>
+                        <Link to='/blog' className='text-decoration-none text-primary fs-5 my-auto me-5'>Blog</Link>
+                        <Link to='/login' className='text-decoration-none text-primary fs-5 my-auto me-5'>Log In</Link>
+                        <Link to='/signup' className='text-decoration-none text-primary fs-5 my-auto me-5'>Sign Up</Link>
                         {
                             user?.displayName ? <h5 className='text-warning'>{user?.displayName}</h5> : ''
                         }
