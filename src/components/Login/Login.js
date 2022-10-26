@@ -16,8 +16,8 @@ const Login = () => {
                 <Form.Label className='mt-3'>Password</Form.Label>
                 <Form.Control className='bg-dark p-3 my-3 border-success' type="password" placeholder="Password" required />
             </Form.Group>
-            <Button className='w-100 mx-auto text-center text-light p-2 m-3' variant="outline-primary" type="submit">
-                Submit
+            <Button className='w-100 mx-auto text-center fs-5 text-light p-2 m-3' variant="outline-primary" type="submit">
+                Log In
             </Button>
             <p className='text-center my-3'>New User? Please <Link className='text-decoration-none fs-5' to='/signup'>Sign Up</Link></p>
         </Form>
