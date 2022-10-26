@@ -27,23 +27,23 @@ const Navber = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="w-100">
 
-                        <div className='d-flex justify-content-between align-content-start w-100'>
-                            <div>
+                        <div className='d-flex justify-content-between align-content-start w-100 flex-column flex-lg-row'>
+                            <div className='d-flex flex-column flex-sm-row'>
                                 <Link to='/home' className='text-decoration-none text-primary fs-5 my-auto me-3'>Home</Link>
                                 <Link to='/courses' className='text-decoration-none text-primary fs-5 my-auto me-3'>Courses</Link>
                                 <Link to='/blog' className='text-decoration-none text-primary fs-5 my-auto me-2'>Blog</Link>
                             </div>
-                            <div className='justify-content-en'>
+                            <div className='d-flex flex-column flex-sm-row'>
 
                                 {
-                                    user?.email ? <>
+                                    user?.uid ? <>
                                         {
                                             user?.photoURL ? <OverlayTrigger
                                                 placement="bottom"
                                                 delay={{ show: 250, hide: 400 }}
                                                 overlay={renderTooltip}
                                             >
-                                                <img type="button" style={{ width: '40px' }} className='bg-light rounded-circle text-light' src={user?.photoURL} alt="" />
+                                                <img type="button" style={{ width: '40px' }} className='bg-light rounded-circle text-light my-2' src={user?.photoURL} alt="" />
                                             </OverlayTrigger> :
                                                 <FaUserCircle className='text-light fs-2'></FaUserCircle>
                                         }
@@ -52,10 +52,6 @@ const Navber = () => {
                                             <Link to='/signup' className='text-decoration-none text-primary fs-5 my-auto me-3'>Sign Up</Link></>
                                 }
 
-
-                                {/* {
-                                    user?.email ? <p className='text-warning'>{user?.email}</p> : ''
-                                } */}
                             </div>
 
                         </div>
