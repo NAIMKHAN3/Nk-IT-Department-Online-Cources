@@ -6,9 +6,6 @@
 * Creating dynamic cards.
 * Loaded data dynamically.
 * Making dynamic root.
-* Making an optional quiz.
-* Making a chart.
-* Making a question ans. page.
 * Etc.
 # Use in Website
 * React bootstrap
