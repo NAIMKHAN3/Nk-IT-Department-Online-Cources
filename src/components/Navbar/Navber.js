@@ -57,6 +57,7 @@ const Navber = () => {
                                 <Link to='/home' className='text-decoration-none text-primary fs-5 my-auto me-3'>Home</Link>
                                 <Link to='/courses' className='text-decoration-none text-primary fs-5 my-auto me-3'>Courses</Link>
                                 <Link to='/blog' className='text-decoration-none text-primary fs-5 my-auto me-2'>Blog</Link>
+                                <Link to='/faq' className='text-decoration-none text-primary fs-5 my-auto me-2'>FAQ</Link>
                             </div>
                             <div className='d-flex flex-column flex-sm-row'>
 

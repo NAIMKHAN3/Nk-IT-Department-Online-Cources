@@ -4,6 +4,7 @@ import SignUp from "../components/CardComponents/Signup/SignUp";
 import CardDetails from "../components/CardDetails/CardDetails";
 import CheckOut from "../components/CheckOut/CheckOut";
 import Courses from "../components/Courses/Courses";
+import Faqs from "../components/Faqs/Faqs";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Main from "../components/Main/Main";
@@ -23,6 +24,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/signup', element: <SignUp></SignUp>
+            },
+            {
+                path: '/faq',
+                loader: () => fetch('/products.json'),
+                element: <Faqs></Faqs>
             },
             {
                 path: '/courses',
