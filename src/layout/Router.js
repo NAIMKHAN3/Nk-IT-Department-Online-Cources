@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../components/Blog/Blog";
 import CardComponents from "../components/CardComponents/CardComponents";
 import SignUp from "../components/CardComponents/Signup/SignUp";
 import CardDetails from "../components/CardDetails/CardDetails";
 import CheckOut from "../components/CheckOut/CheckOut";
 import Courses from "../components/Courses/Courses";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Faqs from "../components/Faqs/Faqs";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
@@ -12,7 +14,7 @@ import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
-        path: '/', element: <Main></Main>, children: [
+        path: '/', element: <Main></Main>, errorElement: <ErrorPage></ErrorPage>, children: [
             {
                 path: '/', element: <Home></Home>
             },
@@ -24,6 +26,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/signup', element: <SignUp></SignUp>
+            },
+            {
+                path: '/blog', element: <Blog></Blog>
             },
             {
                 path: '/faq',

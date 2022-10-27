@@ -54,10 +54,10 @@ const Navber = () => {
 
                         <div className='d-flex justify-content-between align-content-start w-100 flex-column flex-lg-row'>
                             <div className='d-flex flex-column flex-sm-row'>
-                                <Link to='/home' className='text-decoration-none text-primary fs-5 my-auto me-3'>Home</Link>
-                                <Link to='/courses' className='text-decoration-none text-primary fs-5 my-auto me-3'>Courses</Link>
-                                <Link to='/blog' className='text-decoration-none text-primary fs-5 my-auto me-2'>Blog</Link>
-                                <Link to='/faq' className='text-decoration-none text-primary fs-5 my-auto me-2'>FAQ</Link>
+                                <Link to='/home' className='text-decoration-none text-light fs-5 my-auto me-3'>Home</Link>
+                                <Link to='/courses' className='text-decoration-none text-light fs-5 my-auto me-3'>Courses</Link>
+                                <Link to='/blog' className='text-decoration-none text-light fs-5 my-auto me-3'>Blog</Link>
+                                <Link to='/faq' className='text-decoration-none text-light fs-5 my-auto me-3'>FAQ</Link>
                             </div>
                             <div className='d-flex flex-column flex-sm-row'>
 
@@ -74,8 +74,8 @@ const Navber = () => {
                                                 <FaUserCircle className='text-light fs-2'></FaUserCircle>
                                         }
                                         <Button onClick={handleLogOut} className='my-auto mx-3' variant="outline-primary">Log Out</Button></> :
-                                        <><Link to='/login' className='text-decoration-none text-primary fs-5 my-auto me-3'>Log In</Link>
-                                            <Link to='/signup' className='text-decoration-none text-primary fs-5 my-auto me-3'>Sign Up</Link></>
+                                        <><Link to='/login' className='text-decoration-none text-light fs-5 my-auto me-3'>Log In</Link>
+                                            <Link to='/signup' className='text-decoration-none text-light fs-5 my-auto me-3'>Sign Up</Link></>
                                 }
 
                                 <Button onClick={toggle} className='my-3 mx-3' variant="outline-warning">{theme}</Button>
