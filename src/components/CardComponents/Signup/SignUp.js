@@ -10,7 +10,7 @@ import { AuthContext } from '../../../UserContext';
 const SignUp = () => {
     const [error, setError] = useState('');
     const Navigate = useNavigate();
-    const { signUp, updateNamePhoto, githubSign, signInGoogle } = useContext(AuthContext)
+    const { signUp, updateNamePhoto, githubSign, signInGoogle } = useContext(AuthContext);
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const handleSignUp = (e) => {
@@ -28,8 +28,8 @@ const SignUp = () => {
                     'Thank You',
                     'success'
                 )
-                Navigate(from, { replace: true })
-                updateProfile(name, photoURL)
+                Navigate(from, { replace: true });
+                updateProfile(name, photoURL);
             })
             .catch(error => { setError(error.message) });
         form.reset();
